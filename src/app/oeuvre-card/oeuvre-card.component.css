@@ -1,0 +1,50 @@
+
+.pcard {
+  border-radius: 30px;
+  display: grid;
+  grid-template-rows: 100px 320px 100px 50px;
+  grid-template-columns: 100%;
+
+  background-color: RGB(0,0,0);
+  height: 600px;
+  width: 300px;
+ box-shadow: white;
+  box-shadow: 5px 5px 10px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+
+}
+.pcard:hover {
+  transform: scale(1.1); }
+
+
+  .cardtitre{
+
+  margin-top: 40px;
+  color: white;
+  height: 100px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+
+}
+.desc {
+  padding-top:30px;
+  color: white;
+  width: 300px;
+  height: 100px;
+  text-align: center;
+}
+
+.rating {
+ border-radius: 0px 0px 30px 30px;
+  background-color: gold;
+  height: 50px;
+  font-size: 30px;
+   text-align: center;
+  margin-top: 0px;
+  font-family: 'Permanent Marker', Cochin, Georgia, Times, 'Times New Roman', serif;
+
+
+
+
+}

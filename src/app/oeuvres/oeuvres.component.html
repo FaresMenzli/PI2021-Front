@@ -1,0 +1,6 @@
+<div class="d-flex justify-content-around flex-wrap pb-5 ">
+
+  <div *ngFor="let item of oeuvres; let i = index ; " class="pb-5">
+
+<app-oeuvre-card [oeuvre]="item"></app-oeuvre-card>
+  </div>

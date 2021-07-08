@@ -1,0 +1,24 @@
+
+<div class="pcard ">
+  <div> <h2 class="cardtitre">{{oeuvre.nameOeuvre}}</h2>
+ <!-- <img class="hart position-relative" src="../../assets/like.png" width="30px" height="30px" alt=""> </div> -->
+</div>
+  <img  src={{oeuvre.photo}}  alt="filmimage" width="300px" height="350px">
+
+
+ <!--  <div class="modsup ">
+      <div><button>Editer</button></div>
+
+  <div><button>Supprimer</button></div>
+  </div> -->
+ <!--  <div class="d-flex justify-content-around mb-1 pb-1">
+  <input routerLink={{Product.id}} type="button" value="Details" class="btn btn-outline-warning">
+  <input (click)="Delete(Product.id)" type="button" value="Delete" class="btn btn-outline-danger">-->
+  <div class="d-flex justify-content-around mb-1 pb-1">
+  <input  (click)="getOeuvre(oeuvre.id)" type="button" value="Ajouter au panier" class="btn btn-outline-primary">
+</div>
+
+  <p class="rating">{{oeuvre.price}}</p>
+
+
+</div>
