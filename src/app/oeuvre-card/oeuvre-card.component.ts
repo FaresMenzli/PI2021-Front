@@ -1,6 +1,10 @@
+import { Router } from '@angular/router';
+import { Commande } from './../Model/Commande';
+import { CommandeService } from './../Shared/commande.service';
 import { OeuvreService } from './../Shared/oeuvre.service';
 import { Oeuvre } from './../Model/Oeuvre';
 import { Component, Input, OnInit } from '@angular/core';
+import { setTimeout } from 'timers';
 
 @Component({
   selector: 'app-oeuvre-card',
@@ -9,17 +13,46 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class OeuvreCardComponent implements OnInit {
   @Input()oeuvre:Oeuvre ;
-  constructor( OeuvreService : OeuvreService) { }
+  commande : Commande
+  idClient : number
+  idOeuvre : number
+  constructor( private OeuvreService : OeuvreService, private CommandeService:CommandeService , private router :Router) { }
 
   ngOnInit(): void {
   }
 
-  getOeuvre(i){
 
-    /* this.OeuvreService.getOeuvreById().subscribe(
+  Commander(i){
+
+
+    console.log(this.getOeuvre(i).id)
+    this.idOeuvre=this.getOeuvre(i).id
+    this.idClient=1
+/*     this.commande.Oeuvre.push(this.oeuvre)
+    this.commande.client.id=1 */
+
+
+    this.CommandeService.postCommande(this.commande ,this.idClient , this.idOeuvre).subscribe()
+    this.router.navigate(['panier'])
+
+
+
+  }
+getOeuvre(i: number){
+
+    this.OeuvreService.getOeuvreById(i).subscribe(
+      (data: Oeuvre) => this.oeuvre = data);
+
+      return this.oeuvre
+
+/* setTimeout(() => {
+  console.log(this.oeuvre)
+}, 1000);
+    this.OeuvreService.getOeuvreById().subscribe(
       (data: Oeuvre) => this.oeuvre = data);
 
     console.log(object) */
   }
+
 
 }

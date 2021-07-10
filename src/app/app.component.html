@@ -1,38 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<div><a class="text-decoration-none" routerLink="/client"></a></div>
+<div><a class="text-decoration-none" routerLink="/admin"></a></div>
 
-  <title>artisticShowroom</title>
-
-</head>
-<body class="bcody" >
-<header>
-  <!--logo + search-->
-  <div class="d-flex justify-content-between align-items-center black pt-3 pb-3">
-  <img src="../assets/logo4.png" alt="logo" height="100px">
-  <h1 class="permanent">Artistic Showroom</h1>
-  <img src="../assets/logo4.png" alt="logo" height="100px">
-
-
-  </div>
-  <!-- Navigation -->
-  <nav class="navbar d-flex justify-content-around">
-    <div><a class="text-decoration-none" routerLink="/oeuvres"><b>liste des oeuvres</b></a></div>
-    <div><a class="text-decoration-none" routerLink="/panier"><b>Panier</b></a></div>
-
-
-
-  </nav>
-
-
-</header>
- <main class="body">
-  <router-outlet ></router-outlet>
- </main>
-<footer></footer>
-</body>
-</html>
+<router-outlet  ></router-outlet>

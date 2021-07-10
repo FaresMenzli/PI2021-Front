@@ -3,7 +3,7 @@ import { Client } from './Client';
 export class Commande {
   id:number
   client : Client
-  oeuvre: Oeuvre[]
+  Oeuvre:  Array<Oeuvre> /* Oeuvre [] */
   done:boolean
   dateCommande:Date
 
