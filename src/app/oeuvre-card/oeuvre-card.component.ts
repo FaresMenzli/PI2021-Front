@@ -1,10 +1,10 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Commande } from './../Model/Commande';
 import { CommandeService } from './../Shared/commande.service';
 import { OeuvreService } from './../Shared/oeuvre.service';
 import { Oeuvre } from './../Model/Oeuvre';
 import { Component, Input, OnInit } from '@angular/core';
-import { setTimeout } from 'timers';
+
 
 @Component({
   selector: 'app-oeuvre-card',
@@ -16,7 +16,7 @@ export class OeuvreCardComponent implements OnInit {
   commande : Commande
   idClient : number
   idOeuvre : number
-  constructor( private OeuvreService : OeuvreService, private CommandeService:CommandeService , private router :Router) { }
+  constructor( private router : Router, private route : ActivatedRoute ,private OeuvreService : OeuvreService, private CommandeService:CommandeService , ) { }
 
   ngOnInit(): void {
   }
@@ -33,7 +33,10 @@ export class OeuvreCardComponent implements OnInit {
 
 
     this.CommandeService.postCommande(this.commande ,this.idClient , this.idOeuvre).subscribe()
-    this.router.navigate(['panier'])
+    setTimeout(() => {
+     /*  this.router.navigate(['oeuvres'] ,{relativeTo: this.route} ) */
+     window.location.reload();
+    }, 500);
 
 
 

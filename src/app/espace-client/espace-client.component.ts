@@ -1,6 +1,8 @@
+import { CommandeService } from './../Shared/commande.service';
+import { Commande } from './../Model/Commande';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { relative } from 'path';
+
 
 @Component({
   selector: 'app-espace-client',
@@ -8,12 +10,16 @@ import { relative } from 'path';
   styleUrls: ['./espace-client.component.css']
 })
 export class EspaceClientComponent implements OnInit {
-
-  constructor( private router : Router, private route : ActivatedRoute) { }
+  commandes:Commande[]
+  constructor( private router : Router, private route : ActivatedRoute , private CommandeService :CommandeService) { }
 
   ngOnInit(): void {
+    this.CommandeService.getCommande().subscribe(
+      (data: Commande[]) => (this.commandes = data)
+    );
   }
   showOeuvres(){
+
 
     this.router.navigate(['oeuvres'],{relativeTo: this.route})
   }

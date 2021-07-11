@@ -23,7 +23,7 @@ oeuvres:Oeuvre[]
 
 
       setTimeout(() => {
-          console.log(this.oeuvres[0])
+          console.log(this.oeuvres)
       }, 1000);
 
 
