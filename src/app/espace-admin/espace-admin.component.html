@@ -224,7 +224,9 @@
                     <th>Name Oeuvre</th>
                     <th>Name Client</th>
                     <th>Surname Client</th>
+                    <th>Date Commande</th>
                     <th>done </th>
+
 
                   </tr>
                 </thead>
@@ -241,6 +243,8 @@
                     <th>{{item.Oeuvre[0].nameOeuvre}}</th>
                     <th>{{item.client.name}}</th>
                     <th>{{item.client.surname}}</th>
+                    <th>{{item.dateCommande.split('-')[0] }} / {{item.dateCommande.split('-')[1]}} / {{item.dateCommande.split('-')[2][0]}}{{item.dateCommande.split('-')[2][1]}} </th>
+
                     <th class="text-center text-light" [ngClass]="item.done ? 'bg-success': 'bg-danger' ">{{item.done}}
                     </th>
 
