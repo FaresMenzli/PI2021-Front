@@ -33,10 +33,7 @@ export class OeuvreCardComponent implements OnInit {
 
 
     this.CommandeService.postCommande(this.commande ,this.idClient , this.idOeuvre).subscribe()
-    setTimeout(() => {
-     /*  this.router.navigate(['oeuvres'] ,{relativeTo: this.route} ) */
-     window.location.reload();
-    }, 500);
+   alert("L'Oeuvre "+this.oeuvre.nameOeuvre + " est ajouté a votre panier ")
 
 
 

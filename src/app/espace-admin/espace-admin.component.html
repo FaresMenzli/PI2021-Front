@@ -20,8 +20,8 @@
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
-                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                   <!--  <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." [(ngModel)]="search" aria-describedby="btnNavbarSearch" />
+                    --> <!-- <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button> -->
                 </div>
             </form>
             <!-- Navbar-->
@@ -125,29 +125,27 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Warning Card</div>
+                                <div class="card bg-light text-white mb-4">
+                                    <div class="card-body text-dark">pourcentage des Commandes terminées</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+
+                                        <div class="small text-white"><i class="fas fa-angle-right"><h1 [ngClass]="{'text-success': pourcentage>50 , 'text-danger' : pourcentage<=50}">{{pourcentage}} %</h1></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Success Card</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    <div class="card-body">Commande done</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-center justify-content-between">
+                                        <div class="small align-items-center  text-white"><i class="fas fa-angle-right"><h1>{{nbDone}}</h1></i></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-body">Commande Not Done</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                        <div class="small  text-white"><i class="fas fa-angle-right"><h1>{{nbNotDone}}</h1></i></div>
                                     </div>
                                 </div>
                             </div>
@@ -178,28 +176,36 @@
                                 DataTable Example
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple" class="table table-striped">
+                              <div class="d-flex justify-content-around">
+                                <input (click)="sortByCsr()" class="btn btn-outline-primary pr-5 pl-5" type="button" value="Sort by Customer Name">
+                                <input (click)="sortByOeuvre()" class="btn btn-outline-primary pr-5 pl-5"type="button" value="Sort by Oeuvre Name">
+                                <input (click)="sortByDate()" class="btn btn-outline-primary pr-5 pl-5"type="button" value="Sort by date Commande">
+                                <input (click)="sortByDone()" class="btn btn-outline-primary pr-5 pl-5"type="button" value="Sort by Done">
+
+                              </div>
+                              <div class="d-flex justify-content-center w-100 mt-5 mb-5">
+                              <input class="w-100" type="text" name="" id="" [(ngModel)]="search" placeholder="search By CSR Name">
+                            </div>
+                              <table id="datatablesSimple" class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>Name Oeuvre</th>
                                             <th>Name Client</th>
                                             <th>Surname Client</th>
                                             <th>done </th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+
                                         </tr>
                                     </thead>
-                                    <tfoot>
 
-                                    </tfoot>
-                                    <tbody>
-                                      <tr *ngFor='let item of commandes ;let i = index ;'>
+                                    <tbody *ngFor='let item of commandes ;let i = index ;'>
+<!--                                       <tr *ngIf="search==null || item.client.name.toLowerCase().includes(search.toLowerCase()) ">
+ -->                                        <tr *ngIf="search==null || item.client.name.toLowerCase().includes(search.toLowerCase()) ">
+
                                         <th>{{item.Oeuvre[0].nameOeuvre}}</th>
                                         <th>{{item.client.name}}</th>
                                         <th>{{item.client.surname}}</th>
                                         <th class="text-center text-light" [ngClass]="item.done ? 'bg-success': 'bg-danger' ">{{item.done}}</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+
                                     </tr>
 
                                     </tbody>

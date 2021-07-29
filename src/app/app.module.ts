@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { EspaceClientComponent } from './espace-client/espace-client.component';
 import { EspaceAdminComponent } from './espace-admin/espace-admin.component';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   /* { path : 'oeuvres' , component : OeuvresComponent,  },
@@ -34,7 +35,7 @@ const routes: Routes = [
     EspaceClientComponent,
     EspaceAdminComponent,
   ],
-  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule],
+  imports: [BrowserModule, RouterModule.forRoot(routes), HttpClientModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

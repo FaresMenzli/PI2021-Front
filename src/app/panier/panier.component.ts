@@ -29,13 +29,22 @@ export class PanierComponent implements OnInit {
   }
 
   Delete(id : number) {
-    this.CommandeService.deleteCommande(id).subscribe((data) => {
-      console.log(data);
-    });
-    setTimeout(() => {
-      window.location.reload();
-    }, 1000);
-  }
+    this.CommandeService.deleteCommande(id).subscribe(/* (data: Commande[]) => { this.commandes=data
+
+    } */);
+    /* this.commandes.sort(function (a, b) { */
+      /* return a.client.name.localeCompare(b.client.name); */
+      setTimeout(() => {
+        this.ngOnInit()
+      }, 600);
+
+
+    }
+  /*   setTimeout(() => {
+      window.location.reload
+    }, 1000); */
+
+
   passerCommande() {
     let idCommande = new Array();
     if (confirm("Voulez-vous cconfirmer votre Commande , le prix est " + this.total + " ?")) {
