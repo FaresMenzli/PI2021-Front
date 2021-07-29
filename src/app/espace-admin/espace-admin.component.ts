@@ -10,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class EspaceAdminComponent implements OnInit {
   commandes: Commande[];
   search  : string
+  firstDate : Date
+  secondDate : Date
 
   csrSort = false;
   oeuvreSort =false
